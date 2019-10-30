@@ -307,9 +307,13 @@ btnRestaura.onclick = function() {
     tbl.data = direcciones;
 };
 
-document.querySelector('.table-responsive-md').onscroll = function () {
+var onScroll = function () {
     menu.classList.remove('visible');
 };
+
+document.querySelector('.table-responsive-md').onscroll = onScroll;
+
+document.querySelector('.table-responsive-md').ontouchmove = onScroll;
 
 form.onsubmit = function(e) {
     e.preventDefault();
