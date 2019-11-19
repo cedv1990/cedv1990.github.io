@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<title></title>
+	<link rel="shortcut icon" href="imagenes/favicon.ico" />
+	<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+	<style>
+		html, body{
+			height: 100%;
+			overflow: hidden;
+			margin: 0;
+		}
+		body{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #24282f;
+			padding: 10px;
+			font-size: 45px;
+
+			font-weight: bold;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+		}
+		#conteo {
+			padding: 10px;
+			background-color: #1BC98E !important;
+			border-radius: 20px;
+		}
+
+		.titulo{
+			font-size: 85%;
+			color: rgba(255, 255, 255, 0.65);
+		}
+
+		#hora{
+			color: #24282f;
+		}
+
+		img{
+			width: 40px;
+		}
+
+		@media screen and (min-width: 400px){
+			#conteo {
+				font-size: .75em;
+			}
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="conteo">
+		<span class="titulo">Adivina cielo...<br />quedan</span><br />
+		<span id="hora">0 horas, 0 minutos y 0 segundos</span><br />
+		<span class="titulo">para irnos de viaje mi amor<br />
+			<img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/apple/198/speak-no-evil-monkey_1f64a.png" />
+			<img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/apple/198/smiling-face-with-smiling-eyes-and-three-hearts_1f970.png" />
+			<img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/apple/198/airplane_2708.png" />
+			<img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/apple/198/beach-with-umbrella_1f3d6.png" />
+			<img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/apple/198/birthday-cake_1f382.png" />
+			<img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/apple/198/bottle-with-popping-cork_1f37e.png" />
+			<img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/apple/198/kiss-woman-man_1f469-200d-2764-fe0f-200d-1f48b-200d-1f468.png" />
+		</span>
+	</div>
+
+	<script src="js/sinco/aes.js" type="text/javascript"></script>
+	<script src="https://cdn.jsdelivr.net/gh/SincoSoft-GoldenBerry/S5@master/v2/s5.min.js" type="text/javascript"></script>
+
+	<script>
+	
+		var spn = Sinco.get('hora');
+
+		var actualizar = _ => {
+			var v = s => s > 1 || s == 0 ? 's' : '';
+			var actual = new Date();
+			var tope = new Date(2020, 2, 1, 9, 34);
+			var diff = tope.getTime() - actual.getTime();
+			var dias = Math.floor(diff/86400000);
+			var hora = Math.floor(diff/3600000)-(dias*24);
+			var minutos = Math.floor((diff/60000)-(dias*1440)-(hora*60));
+			var segundos = Math.floor(((diff/10)-(dias*8640000)-(hora*360000)-(minutos*6000))/100);
+			var msj = '';
+
+			if (diff > 0){
+				if (dias > 0) {
+					msj += `${dias} día${v(dias)}`;
+				}
+
+				if (hora > 0) {
+					if (dias > 0) {
+						if (minutos == 0 && segundos == 0) msj += ' y ';
+						else msj += ', ';
+					}
+					msj += `${hora} hora${v(hora)}`;
+				}
+				if (minutos > 0) {
+					if (dias > 0) {
+						if (hora == 0) {
+							if (segundos == 0) msj += ' y ';
+							else msj += ', ';
+						}
+					}
+					if (hora > 0){
+						if (segundos > 0) msj += ', ';
+						else msj += ' y ';
+					}
+					msj += `${minutos} minuto${v(minutos)}`;
+				}
+				if (segundos > 0) {
+					if (msj != '') msj += ' y ';
+					msj += `${segundos} segundo${v(segundos)}`;
+				}
+				spn.innerHTML = msj;
+				document.title = msj;
+
+			}
+			else {
+				Sinco.get('conteo').innerHTML = document.title = 'Es hora de irnos de viaje!!!';
+				clearInterval(inte);
+			}
+		};
+		actualizar();
+		var inte = setInterval(actualizar, 1000);
+	
+	</script>
+</body>
+</html>
