@@ -1,5 +1,6 @@
 var promise = require('bluebird');
 var mysql = require('mysql');
+var uuid = require('uuid-random');
 
 const config = {
     host: 'localhost',
@@ -15,6 +16,7 @@ module.exports = {
         const db = promise.promisifyAll(pool);
 
         db.queryAsync('SELECT * FROM perfil').then(function(data){
+            data[0].uuid = uuid();
             res.status(200)
             .json(data);
         });

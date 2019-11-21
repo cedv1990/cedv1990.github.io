@@ -8,6 +8,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/api/test', db.getTest);
+router.get('/test', db.getTest);
 
 module.exports = router;

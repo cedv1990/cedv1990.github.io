@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="apple-touch-icon" href="logo192.png" />
+    <title>Ingreso al portal - XP Colombia</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300,100italic,100" rel="stylesheet" type="text/css" />
+    <script>
+    
+      try {
+        eval('() => {}');
+
+        if (!sessionStorage.getItem('id-sesion')) {
+            window.location.href = 'login';
+        }
+      }
+      catch(e){
+        window.location.href = 'warning';
+      }
+
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/login.css?v=1.0" />
+    
+    <script src="javascripts/jquery-3.3.1.slim.min.js"></script>
+    <script src="javascripts/popper.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <noscript>Necesitas habilitar JavaScript para correr esta app.</noscript>
+    <div class="form-container"></div>
+  </body>
+</html>
