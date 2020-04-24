@@ -4,7 +4,7 @@
     "description": "Demo de italo customer APP",
     "start_url": "./",
     "display": "standalone",
-    "background_color": "#1E1E1E",
+    "background_color": "#EF5350",
     "theme_color": "#EF5350",
     "title_bar_color": "#EF5350",
     "orientation": "portrait-primary",

@@ -1,5 +1,5 @@
-const staticCacheName = 'site-static-v0.1.5';
-const dynamicCacheName = 'site-dynamic-v0.1.5';
+const staticCacheName = 'site-static-v0.1.6';
+const dynamicCacheName = 'site-dynamic-v0.1.6';
 
 const limitCacheSize = (name, size) =>
     caches.open(name).then(cache =>
