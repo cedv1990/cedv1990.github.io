@@ -13,11 +13,11 @@ const limitCacheSize = (name, size) =>
 const assets = [
     './',
     './index.html',
-    './js/init.js',
-    './js/register.js',
-    './data.json',
+    'js/init.js',
+    'js/register.js',
+    'data.json',
 
-    /*'https://cdn.jsdelivr.net/gh/SincoSoft-GoldenBerry/S5@master/v2/s5.js',
+    'https://cdn.jsdelivr.net/gh/SincoSoft-GoldenBerry/S5@master/v2/s5.js',
     'https://cdn.jsdelivr.net/gh/SincoSoft-GoldenBerry/S5@master/s5.request.js',
     'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js',
     'https://fonts.googleapis.com/icon?family=Material+Icons',
@@ -64,7 +64,7 @@ const assets = [
     'images/icons/icon-192x192.png',
     'images/icons/icon-384x384.png',
     'images/icons/icon-512x512.png',
-    'images/favicon.ico'*/
+    'images/favicon.ico'
 ];
 
 self.addEventListener('install', event =>
