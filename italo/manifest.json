@@ -1,7 +1,7 @@
 {
-    "name": "s5.js - By: Goldenberry",
-    "short_name": "s5-js",
-    "description": "Documentación de la librería s5.js",
+    "name": "Italo - CustomerAPP",
+    "short_name": "italo-app",
+    "description": "Demo de italo customer APP",
     "start_url": "./",
     "display": "standalone",
     "background_color": "#1E1E1E",
