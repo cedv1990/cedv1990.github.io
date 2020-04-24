@@ -2,9 +2,10 @@
     const btnLogin = s5.get('button.btn').shift();
     const controles = s5.get('[data-prop]');
     const form = s5.get('form.container').shift();
+    const modalContainer = document.querySelector('.modal');
     let modal;
 
-    document.addEventListener('DOMContentLoaded', () => modal = M.Modal.init(document.querySelector('.modal')));
+    document.addEventListener('DOMContentLoaded', () => modal = M.Modal.init(modalContainer));
 
     const login = async () => {
         const { user, pass } = controles.reduce((ac, ct) => {
@@ -17,7 +18,11 @@
             const { user: usuario, pass: contrasena } = loginData;
 
             if (usuario === user && contrasena === pass) {
+                modalContainer.querySelector('h4').innerHTML = 'Usuario autenticado';
                 modal.open();
+            }
+            else{
+                modalContainer.querySelector('h4').innerHTML = 'Usuario o contraseña incorrectos';
             }
         }
         catch (e) {
