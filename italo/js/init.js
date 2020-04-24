@@ -19,11 +19,11 @@
 
             if (usuario === user && contrasena === pass) {
                 modalContainer.querySelector('h4').innerHTML = 'Usuario autenticado';
-                modal.open();
             }
             else{
                 modalContainer.querySelector('h4').innerHTML = 'Usuario o contraseña incorrectos';
             }
+            modal.open();
         }
         catch (e) {
 
