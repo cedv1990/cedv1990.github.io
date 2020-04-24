@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#0a0a0a" class="meta-theme" />
+    <title>Italo - CustomersAPP</title>
+    <script>
+
+        try {
+            eval('window["a"] = () => {};');
+
+        } catch (e) {
+            window.location.href = 'unsupported.html';
+        }
+
+        /*(function(){
+            if (window.location.protocol !== 'https:')
+                window.location.href = window.location.href.replace(window.location.protocol, 'https:')
+        })();*/
+
+    </script>
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="manifest" href="manifest.json" />
+    <!-- Soporte para iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0a0a0a" class="meta-theme" />
+    <meta name="apple-mobile-web-app-status-bar" content="#0a0a0a" class="meta-theme" />
+    <meta name="apple-mobile-web-app-title" content="s5-js" />
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png" />
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="css/fa/css/all.css" />
+    <link rel="stylesheet" href="css/index.css" />
+
+    <script src="https://cdn.jsdelivr.net/gh/SincoSoft-GoldenBerry/S5@master/v2/s5.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/SincoSoft-GoldenBerry/S5@master/s5.request.js"></script>
+</head>
+
+<body class="red lighten-1">
+
+    <div class="container">
+        <div class="container">
+            <form class="container">
+                <div class="card white hoverable">
+                    <div class="card-content">
+                        <span class="card-title">
+                            <div class="valign-wrapper">
+                                <img src="images/icons/icon-72x72.png" class="pr-10" />
+                                Ingreso a la aplicación
+                            </div>
+                        </span>
+                        <div>
+                            <label for="usuario">Usuario</label>
+                            <input type="text" required id="usuario" data-prop="user" value="luis.diaz" />
+                            <label for="contrasena">Contraseña</label>
+                            <input type="password" required id="contrasena" data-prop="pass" value="luis123" />
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <button class="btn waves-effect waves-light" type="button" disabled>
+                            Ingresar
+                            <i class="fas fa-sign-in-alt right"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <h4>Usuario autenticado</h4>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn green lighten-1 modal-close waves-effect waves-green">
+                <i class="far fa-thumbs-up left"></i>
+                Ok
+            </button>
+        </div>
+    </div>
+
+    <aside class="new-version hidden">
+        <i class="far fa-laugh"></i>
+        <div>
+            Hay una nueva versión de la aplicación.<br />
+            De clic a este aviso para actualizar.
+        </div>
+    </aside>
+    <script src="js/register.js"></script>
+    <script src="js/init.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
