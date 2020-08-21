@@ -84,8 +84,7 @@
 
 	if ('geolocation' in navigator) {
 		navigator.geolocation.watchPosition(event => {
-		  alert(JSON.stringify(event.coords));
-		  speed.textContent = event.coords.speed;
+		  speed.textContent = event.coords.speed || ('NaN - Heading: ' + event.coords.heading);
 		  arrow.style.transform = `rotate(${event.coords.heading}deg)`;
 		}, (err) => {
 		  alert('no sea así!!! deme permisos');
