@@ -32,6 +32,7 @@
   <h1 class="speed">
     <span class="speed-value">0</span>
     <span class="units">KM/H</span>
+	<span class="msj"></span>
   </h1>
 
   <style>
@@ -81,11 +82,17 @@
   <script>
     const speed = document.querySelector('.speed-value');
     const arrow = document.querySelector('.arrow');
+	const msj = document.querySelector('.msj');
 
 	if ('geolocation' in navigator) {
 		navigator.geolocation.watchPosition(event => {
-		  speed.textContent = event.coords.speed || ('NaN - Heading: ' + event.coords.heading);
-		  arrow.style.transform = `rotate(${event.coords.heading}deg)`;
+		  if (event.coords.speed) {
+			speed.textContent = event.coords.speed;
+			arrow.style.transform = `rotate(${event.coords.heading}deg)`;
+		  }
+		  else {
+		    msj.textContent = `Speed: ${event.coords.speed}, Heading: ${event.coords.heading}`;
+		  }
 		}, (err) => {
 		  alert('no sea así!!! deme permisos');
 		});
