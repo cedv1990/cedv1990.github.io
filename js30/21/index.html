@@ -82,12 +82,18 @@
     const speed = document.querySelector('.speed-value');
     const arrow = document.querySelector('.arrow');
 
-    navigator.geolocation.watchPosition(event => {
-      speed.textContent = event.coords.speed;
-      arrow.style.transform = `rotate(${event.coords.heading}deg)`;
-    }, (err) => {
-      alert('no sea así!!! deme permisos');
-    });
+	if ('geolocation' in navigator) {
+		navigator.geolocation.watchPosition(event => {
+		  alert('Entra!');
+		  speed.textContent = event.coords.speed;
+		  arrow.style.transform = `rotate(${event.coords.heading}deg)`;
+		}, (err) => {
+		  alert('no sea así!!! deme permisos');
+		});
+	}
+	else {
+		alert('El navegador no tiene geolocation');
+	}
   </script>
 </body>
 
