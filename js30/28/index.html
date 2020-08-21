@@ -1,20 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Video Speed Scrubber</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <div class="wrapper">
-    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop controls></video>
+    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop
+      controls></video>
     <div class="speed">
       <div class="speed-bar">1×</div>
     </div>
   </div>
 
-<script>
-</script>
+  <script>
+    const speed = document.querySelector('.speed');
+    const speedBar = document.querySelector('.speed-bar');
+    const video = document.querySelector('.flex');
+    const max = 4;
+    const min = 0.4;
+    const newRange = max - min;
+
+    function handleMove(event) {
+      const percent = calcPercent(event.layerY, this.offsetHeight);
+      const playbackRate = getPlaybackRate(percent);
+      const height = getHeight(percent);
+
+      moveSpeedBar(height, playbackRate);
+      setPlaybackRateToVideo(playbackRate);
+    }
+
+    function calcPercent(positionY, height) {
+      return positionY / height;
+    }
+
+    function getHeight(percent) {
+      return Math.round(percent * 100);
+    }
+
+    function getPlaybackRate(percent) {
+      return (percent * newRange) + min;
+    }
+
+    function moveSpeedBar(height, playbackRate) {
+      speedBar.style.height = `${height}%`;
+      speedBar.textContent = playbackRate.toFixed(2) + 'x';
+    }
+
+    function setPlaybackRateToVideo(playbackRate) {
+      video.playbackRate = playbackRate;
+    }
+
+    (() => {
+      console.log(calcPercent(50, 100) == 0.5);
+    })();
+
+    speed.addEventListener('mousemove', handleMove)
+  </script>
 </body>
+
 </html>
